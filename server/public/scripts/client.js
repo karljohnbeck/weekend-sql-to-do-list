@@ -5,3 +5,15 @@ $(document).ready(readyNow)
 function readyNow() {
     console.log('JQ')
 }
+
+
+// GET
+
+
+//POST
+
+
+// DELETE
+
+
+//PUT

@@ -15,9 +15,10 @@ function getTasks() {
     $.ajax({
         method: 'GET',
         url: '/toDos'
-    }).then(function (response){
+    }).then(function (response) {
         console.log(response)
-    }). catch(function (error) {
+        AppendToDo(response)
+    }).catch(function (error) {
         console.log('error in the server', error)
     });
 }
@@ -34,15 +35,31 @@ function submitNewTask() {
         method: 'POST',
         url: '/toDos',
         data: newRow
-    }).then(function (response){
+    }).then(function (response) {
         console.log(response)
         getTasks()
     }).catch(function (error) {
         console.log('error in POST: ', error)
     })
-} 
+}
 
 // DELETE
 
 
 //PUT
+
+
+// append to the dom
+
+function AppendToDo(value) {
+    for (let i = 0; i < value.length; i++) {
+        const toDo = value[i];
+        $('#toDoTableRows').append(`
+        <tr>
+            <td>${toDo.task}</td>
+            <td>${toDo.note}</td>
+            <td><button class ="completeBtn">completed</button></td>
+        </tr>
+        `)
+    }
+}

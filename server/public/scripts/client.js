@@ -50,7 +50,7 @@ function deleteTask() {
     console.log('wahooooooo')
     console.log(($(this).closest('tr').data().id))
     let rowId = $(this).closest('tr').data().id
-    $.ajax ({
+    $.ajax({
         method: 'DELETE',
         url: `/toDos/${rowId}`
     }).then(function (response) {
@@ -64,6 +64,19 @@ function deleteTask() {
 //PUT
 function markAsCompleted() {
     console.log('wahooooooo')
+    console.log(($(this).closest('tr').data().id))
+    let rowId = $(this).closest('tr').data().id
+    let taskStatus = true;
+    $.ajax({
+        method: 'PUT',
+        url: `/toDos/${rowId}`,
+        data: taskStatus
+    }).then(function (response) {
+        console.log(response)
+        getTasks()
+    }).catch(function (error) {
+        console.log('error in DELETE', error)
+    })
 }
 
 // append to the dom

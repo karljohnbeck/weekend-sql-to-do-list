@@ -7,7 +7,7 @@ const toDoRouter = express.Router();
 const pool = require('../modules/pool');
 const { query } = require('../modules/pool');
 // GET
-toDoRouter.get('/', (req,res) => {
+toDoRouter.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "todolist";'
     pool.query(queryText).then((result) => {
         res.send(result.rows);
@@ -18,23 +18,23 @@ toDoRouter.get('/', (req,res) => {
 });
 
 //POST
-toDoRouter.post('/', (req,res) => {
+toDoRouter.post('/', (req, res) => {
     let newToDo = req.body;
     let queryText = `
     INSERT INTO todolist ("task", "note")
     VALUES ($1, $2);
     `;
     pool.query(queryText, [newToDo.task, newToDo.note])
-.then((result) => {
-    res.sendStatus(201)
-}).catch((error) => {
-    console.log('Error in POST: ', error)
-    res.sendStatus(500);
-})
+        .then((result) => {
+            res.sendStatus(201)
+        }).catch((error) => {
+            console.log('Error in POST: ', error)
+            res.sendStatus(500);
+        })
 })
 
 // DELETE
-toDoRouter.delete('/:id', (req,res) => {
+toDoRouter.delete('/:id', (req, res) => {
     let rowId = req.params.id
     console.log('delete from from id: ', rowId)
     let queryText = `
@@ -42,15 +42,30 @@ toDoRouter.delete('/:id', (req,res) => {
     WHERE "id" = $1;
     `;
     pool.query(queryText, [rowId]).then((result) => {
-        res.send (200);
-      }).catch((error) => {
+        res.send(200);
+    }).catch((error) => {
         console.log('error in DELETE', error);
         res.sendStatus(500);
-      })
+    })
 })
 
 //PUT
-
+toDoRouter.put('/:id', (req, res) => {
+    let status = req.body
+    let rowId = req.params.id
+    console.log('update from from id: ', rowId)
+    let queryText = `
+    UPDATE "todolist"
+    SET "completed" = ${Boolean(status)} 
+    WHERE "id" = $1;
+    `;
+    pool.query(queryText, [rowId]).then((result) => {
+        res.send(200);
+    }).catch((error) => {
+        console.log('error in DELETE', error);
+        res.sendStatus(500);
+    })
+})
 
 
 

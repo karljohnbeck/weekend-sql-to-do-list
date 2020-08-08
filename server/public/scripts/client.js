@@ -5,6 +5,8 @@ $(document).ready(readyNow)
 function readyNow() {
     console.log('JQ')
     $('#submitNoteBtn').on('click', submitNewTask)
+    $('#toDoTableRows').on('click', '.completeBtn', markAsCompleted)
+    $('#toDoTableRows').on('click', '.deleteBtn', deleteTask)
     getTasks()
 }
 
@@ -44,22 +46,41 @@ function submitNewTask() {
 }
 
 // DELETE
-
+function deleteTask() {
+    console.log('wahooooooo')
+    console.log(($(this).closest('tr').data().id))
+    let rowId = $(this).closest('tr').data().id
+    $.ajax ({
+        method: 'DELETE',
+        url: `/toDos/${rowId}`
+    }).then(function (response) {
+        console.log(response)
+        getTasks()
+    }).catch(function (error) {
+        console.log('error in DELETE', error)
+    })
+}
 
 //PUT
-
+function markAsCompleted() {
+    console.log('wahooooooo')
+}
 
 // append to the dom
 
 function AppendToDo(value) {
+    $('#toDoTableRows').empty()
     for (let i = 0; i < value.length; i++) {
         const toDo = value[i];
+        console.log(toDo)
         $('#toDoTableRows').append(`
-        <tr>
+        <tr data-id="${toDo.id}" data-completed="${toDo.completed}" >
             <td>${toDo.task}</td>
             <td>${toDo.note}</td>
             <td><button class ="completeBtn">completed</button></td>
+            <td><button class ="deleteBtn">delete</button></td>
         </tr>
         `)
     }
-}
+};
+

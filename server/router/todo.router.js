@@ -4,7 +4,8 @@ const toDoRouter = express.Router();
 
 
 // GET DB connection with pg
-const pool = require('../modules/pool')
+const pool = require('../modules/pool');
+const { query } = require('../modules/pool');
 // GET
 toDoRouter.get('/', (req,res) => {
     let queryText = 'SELECT * FROM "todolist";'
@@ -33,7 +34,20 @@ toDoRouter.post('/', (req,res) => {
 })
 
 // DELETE
-
+toDoRouter.delete('/:id', (req,res) => {
+    let rowId = req.params.id
+    console.log('delete from from id: ', rowId)
+    let queryText = `
+    DELETE FROM "todolist"
+    WHERE "id" = $1;
+    `;
+    pool.query(queryText, [rowId]).then((result) => {
+        res.send (200);
+      }).catch((error) => {
+        console.log('error in DELETE', error);
+        res.sendStatus(500);
+      })
+})
 
 //PUT
 

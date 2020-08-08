@@ -1,0 +1,41 @@
+html {
+    background-color: rgb(207, 219, 232);
+}
+
+header {
+    background-color: rgb(207, 219, 232);
+}
+
+label {
+    margin-left: 3%;
+}
+#noteIn {
+    width: 40%;
+    height: 4;
+}
+
+.true {
+    background-color: lightgreen;
+}
+
+body{
+    background-color: rgb(207, 219, 232);
+}
+
+h1 {
+text-align: center;
+}
+
+section {
+    display: block;
+
+    text-align: center;
+    padding: 3%;
+    
+}
+
+table {
+    text-align: center;
+    background-color: mintcream;
+}
+

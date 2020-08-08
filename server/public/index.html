@@ -15,23 +15,29 @@
     <header>
         <h1>To Do... Or Not... Up To You.</h1>
     </header>
-    <input id="taskIn" type="text">
-    <input id="noteIn" type="text">
-    <button id="submitNoteBtn">Submit</button>
-
+    <section>
+        <label>Task</label>
+        <input id="taskIn" type="text">
+        <label>Note</label>
+        <input id="noteIn" type="text">
+        <button id="submitNoteBtn">Submit</button>
+    </section>
     <div>
-        <table id="toDoTable">
-            <thead>
+        <table id="toDoTable" class="table">
+            <thead class="thead-dark">
                 <tr>
-                    <th>task</th>
-                    <th>notes</th>
+                    <th>Task</th>
+                    <th>Notes</th>
+                    <th></th>
+                    <th></th>
+
                 </tr>
             </thead>
-            <tbody id="toDoTableRows">
+            <tbody id="toDoTableRows" class="table-striped">
                 <tr>
                     <td></td>
                     <td></td>
-                    <td><button class =""></button></td>
+                    <td><button></button></td>
                 </tr>
             </tbody>
         </table>

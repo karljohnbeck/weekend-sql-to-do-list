@@ -86,8 +86,10 @@ function AppendToDo(value) {
     for (let i = 0; i < value.length; i++) {
         const toDo = value[i];
         console.log(toDo)
+
+        console.log(toDo)
         $('#toDoTableRows').append(`
-        <tr data-id="${toDo.id}" data-completed="${toDo.completed}" >
+        <tr class="${toDo.completed}" data-id="${toDo.id}" data-completed="${toDo.completed}" >
             <td>${toDo.task}</td>
             <td>${toDo.note}</td>
             <td><button class ="completeBtn">completed</button></td>

@@ -1,11 +1,10 @@
-const express = require('express')
-const Router = require('express')
-const toDoRouter = express.Touter();
+const express = require('express');
+const Router = require('express');
+const toDoRouter = express.Router();
 
 
 // GET DB connection with pg
-const pool = require('..modules/pool.js')
-
+const pool = require('../modules/pool')
 // GET
 
 

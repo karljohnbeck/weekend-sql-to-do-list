@@ -29,20 +29,24 @@ function getTasks() {
 //POST
 function submitNewTask() {
     console.log('weeeeeeee')
-    let newRow = {
-        task: $('#taskIn').val(),
-        note: $('#noteIn').val(),
+    if ($('#taskIn').val() === '') {
+        alert('Please fill out the Task field before submitting')
+    } else {
+        let newRow = {
+            task: $('#taskIn').val(),
+            note: $('#noteIn').val(),
+        }
+        $.ajax({
+            method: 'POST',
+            url: '/toDos',
+            data: newRow
+        }).then(function (response) {
+            console.log(response)
+            getTasks()
+        }).catch(function (error) {
+            console.log('error in POST: ', error)
+        })
     }
-    $.ajax({
-        method: 'POST',
-        url: '/toDos',
-        data: newRow
-    }).then(function (response) {
-        console.log(response)
-        getTasks()
-    }).catch(function (error) {
-        console.log('error in POST: ', error)
-    })
 }
 
 // DELETE
@@ -91,8 +95,8 @@ function AppendToDo(value) {
         <tr class="${toDo.completed}" data-id="${toDo.id}" data-completed="${toDo.completed}" >
             <td>${toDo.task}</td>
             <td>${toDo.note}</td>
-            <td><button class ="completeBtn">complete</button></td>
-            <td><button class ="deleteBtn">delete</button></td>
+            <td><button class ="completeBtn btn btn-success">complete</button></td>
+            <td><button class ="deleteBtn btn btn-danger">delete</button></td>
         </tr>
         `)
         } else {
@@ -100,7 +104,7 @@ function AppendToDo(value) {
         <tr class="${toDo.completed}" data-id="${toDo.id}" data-completed="${toDo.completed}" >
             <td>${toDo.task}</td>
             <td>${toDo.note}</td>
-            <td><button class ="deleteBtn">delete</button></td>
+            <td><button class ="deleteBtn btn btn-danger">delete</button></td>
         </tr>
         `)
 

@@ -19,8 +19,8 @@
         <label>Task</label>
         <input id="taskIn" type="text">
         <label>Note</label>
-        <input id="noteIn" type="text">
-        <button id="submitNoteBtn">Submit</button>
+        <input id="noteIn" type="text" placeholder="(optional">
+        <button id="submitNoteBtn" class="btn btn-light">Submit</button>
     </section>
     <div class="container-fluid">
         <h3>To Do List</h3>
@@ -40,17 +40,18 @@
     <div class="container-fluid">
         <h3 id="doneHeading">It's Done!</h3>
         <table id="doneTable" class="table toDoTables">
-            <thead class="thead-dark"> 
+            <thead class="thead-dark">
                 <tr>
                     <th>Task</th>
                     <th>Notes</th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody id="doneRows" class="table-striped completeDelete"> 
+            <tbody id="doneRows" class="table-striped completeDelete">
             </tbody>
         </table>
     </div>
+
 </body>
 
 </html>

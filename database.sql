@@ -7,4 +7,6 @@ CREATE TABLE toDoList (
 
 INSERT INTO todolist ("task", "note")
 VALUES ('Make Bed', 'do this before you eat cookies'),
-('eat', 'eat those leftovers in the fridge');
+('eat', 'eat those leftovers in the fridge'),
+('vacumm', 'carpet'),
+('dust', '');

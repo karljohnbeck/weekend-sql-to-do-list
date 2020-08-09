@@ -5,8 +5,8 @@ $(document).ready(readyNow)
 function readyNow() {
     console.log('JQ')
     $('#submitNoteBtn').on('click', submitNewTask)
-    $('#toDoTableRows').on('click', '.completeBtn', markAsCompleted)
-    $('#toDoTableRows').on('click', '.deleteBtn', deleteTask)
+    $('.completeDelete').on('click', '.completeBtn', markAsCompleted)
+    $('.completeDelete').on('click', '.deleteBtn', deleteTask)
     getTasks()
 }
 
@@ -82,20 +82,28 @@ function markAsCompleted() {
 // append to the dom
 
 function AppendToDo(value) {
-    $('#toDoTableRows').empty()
+    $('.completeDelete').empty()
     for (let i = 0; i < value.length; i++) {
         const toDo = value[i];
-        console.log(toDo)
-
-        console.log(toDo)
-        $('#toDoTableRows').append(`
+        if (toDo.completed === false) {
+            console.log(toDo)
+            $('#toDoTableRows').append(`
         <tr class="${toDo.completed}" data-id="${toDo.id}" data-completed="${toDo.completed}" >
             <td>${toDo.task}</td>
             <td>${toDo.note}</td>
-            <td><button class ="completeBtn">completed</button></td>
+            <td><button class ="completeBtn">complete</button></td>
             <td><button class ="deleteBtn">delete</button></td>
         </tr>
         `)
+        } else {
+            $('#doneRows').append(`
+        <tr class="${toDo.completed}" data-id="${toDo.id}" data-completed="${toDo.completed}" >
+            <td>${toDo.task}</td>
+            <td>${toDo.note}</td>
+            <td><button class ="deleteBtn">delete</button></td>
+        </tr>
+        `)
+
+        }
     }
 };
-

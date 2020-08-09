@@ -41,5 +41,9 @@ section {
 table {
     text-align: center;
     background-color: mintcream;
+    table-layout: fixed;
 }
 
+td {
+    word-wrap: break-word;
+}

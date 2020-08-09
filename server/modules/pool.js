@@ -1,5 +1,7 @@
 const pg = require('pg');
 
+// module to set up PG
+
 const config = {
     database: 'weekend-to-do-app',
     host: 'localhost',
@@ -17,4 +19,5 @@ pool.on("error", (err) => {
     console.log("ERROR connected to postgres");
 })
 
+// alow pg to be used if declared on another js file
 module.exports = pool;

@@ -11,7 +11,6 @@ function readyNow() {
     getTasks()
 }
 
-
 // GET the data from the database, stop by the server first
 function getTasks() {
     console.log('inside getTasks()')
@@ -26,7 +25,6 @@ function getTasks() {
         console.log('error in the server', error)
     });
 }
-
 
 //POST
 function submitNewTask() {
@@ -93,7 +91,6 @@ function markAsCompleted() {
 }
 
 // append to the dom function 
-
 function AppendToDo(value) {
     // clear the dom 
     $('.completeDelete').empty()
@@ -120,7 +117,6 @@ function AppendToDo(value) {
             <td><button class ="deleteBtn btn btn-danger">delete</button></td>
         </tr>
         `)
-
         }
     }
 };

@@ -17,10 +17,9 @@ The project was to create a To do List utilizing the full stack CRUD method. The
 1. create a database using the command lines in the databse.sql file (I used postico to talk with PostgreSQL).
 2. turn on the server with 'npm start' in the terminal
 3. got to localhost:5000
-4. input the task you need to complete into the input fields (notes are optional)
-5. once completed, hit the "complete" button
-6. If you ever need to delete a task for any reason, hit the
-"delete" button in the desired row.
+4. input the task you need to complete into the input fields 
+5. Once completed, hit the "submit" button
+6. If you ever need to delete or edit a treat for any reason, hit the "edit" button, then either click the "delete" button or edit
 
 
 

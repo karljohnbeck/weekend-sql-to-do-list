@@ -14,10 +14,10 @@ The project was to create a To do List utilizing the full stack CRUD method. The
 ## Usage
 
 
-1. create a database using the command lines in the databse.sql file (I used postico to talk with PostgreSQL).
-2. turn on the server with 'npm start' in the terminal
-3. got to localhost:5000
-4. input the task you need to complete into the input fields 
+1. Create a database using the command lines in the databse.sql file (I used postico to talk with PostgreSQL).
+2. Turn on the server with 'npm start' in the terminal
+3. Got to localhost:5000
+4. Input the task you need to complete into the input fields 
 5. Once completed, hit the "submit" button
 6. If you ever need to delete or edit a treat for any reason, hit the "edit" button, then either click the "delete" button or edit
 
@@ -37,7 +37,7 @@ The project was to create a To do List utilizing the full stack CRUD method. The
 
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. (Thank your people)
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality.
 
 ## Support
 If you have suggestions or issues, please email me at [karljohnbeck@gmail.com]
